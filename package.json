@@ -33,7 +33,7 @@
   },
   "husky":{
     "hooks":{
-      "pre-commit":"echo HELLO"
+      "pre-commit":"echo HELLO."
     }
   },
   "lint-staged":{
