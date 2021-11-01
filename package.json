@@ -1,12 +1,15 @@
 {
+  "workspaces":["packages/*"],
   "devDependencies": {
     "colors": "1.4.0",
     "coveralls": "3.0.4",
     "dayjs": "1.10.2",
     "eslint": "8.1.0",
+    "husky": "^7.0.4",
     "jsdoc": "^3.6.7",
     "lerna": "^4.0.0",
     "license-check-and-add": "2.3.6",
+    "lint-staged": "^11.2.6",
     "semver": "6.3.0",
     "sleep-promise": "8.0.1",
     "source-map-support": "0.5.12"
@@ -27,6 +30,16 @@
     "test": "lerna exec -- npm run test:cov",
     "repoclean": "lerna clean",
     "licchk": "license-check-and-add"
+  },
+  "husky":{
+    "hooks":{
+      "pre-commit":"lint-staged"
+    }
+  },
+  "lint-staged":{
+    "packages/**/*.js":[
+      "eslint ."
+    ]
   },
   "repository": {
     "type": "git",
@@ -108,6 +121,5 @@
         "file": "HEADER.md"
       }
     }
-  },
-  "dependencies": {}
+  }
 }
