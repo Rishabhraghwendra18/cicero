@@ -1,11 +1,13 @@
 {
-  "workspaces":["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "devDependencies": {
     "colors": "1.4.0",
     "coveralls": "3.0.4",
     "dayjs": "1.10.2",
-    "eslint": "8.1.0",
-    "husky": "^7.0.4",
+    "eslint": "^8.1.0",
+    "husky": "^7.0.0",
     "jsdoc": "^3.6.7",
     "lerna": "^4.0.0",
     "license-check-and-add": "2.3.6",
@@ -29,17 +31,9 @@
     "pretest": "npm run licchk",
     "test": "lerna exec -- npm run test:cov",
     "repoclean": "lerna clean",
-    "licchk": "license-check-and-add"
-  },
-  "husky":{
-    "hooks":{
-      "pre-commit":"echo HELLO."
-    }
-  },
-  "lint-staged":{
-    "packages/**/*.js":[
-      "eslint ."
-    ]
+    "licchk": "license-check-and-add",
+    "linter-precommit":"./node_modules/.bin/eslint --resolve-plugins-relative-to . --fix --ext .js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
